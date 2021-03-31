@@ -1,0 +1,18 @@
+{
+    "appetizers": {
+        "fries": "served in a basket", 
+        "chicken fingers": "5 Chicken fingers w/choice of sauce",
+        "mozarella sticks": "8 Sticks served w/marinara"
+    },
+    "cold sandwiches": ["turkey", "ham", "chicken salad", "veggie"],
+    "hot sandwiches": {
+        "cheesesteak": "Fresh ribeye w/or w/o onions and your choice of cheese", 
+        "hamburger": "6lbs Angus burger served on a brioche bun w/fries or side salad", 
+        "grilled cheese": "Your choice of bread/cheese served w/fries or side salad"
+    },
+    "desserts": {
+        "chocolate cake": "Baked fresh daily", 
+        "ice cream": ["chocolate, vanilla bean, stramberry"], 
+        "apple pie": "A la mode: + $1.00"},
+    "drinks": ["coke", "diet coke", "iced tea", "lemonade"]
+}

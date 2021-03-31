@@ -1,0 +1,35 @@
+
+.container{
+    display: grid;
+    grid-gap: 2px;
+    grid-auto-columns: repeat(12, 1fr);
+    grid-template-rows: 40px 200px 40px;
+    color: #e7d89e;
+    background-color: #e7d89e;
+    text-align: center;
+    border: solid 15px;
+    
+}
+
+
+.header{
+    background-color: #89bca5;
+    grid-column: 1/11
+
+}
+
+.content{
+    background-color: #7cc5a1;
+    grid-column: 2/11;
+}
+
+.menu{
+    background-color: #d7635f;
+    grid-column: 1/2;
+}
+
+.footer{
+    background-color: #e3ba55;
+    grid-column: 1/11;
+}
+

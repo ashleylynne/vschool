@@ -1,0 +1,128 @@
+/* We'll be beefing up our original DJ JS. (You'll still need to make this from scratch).
+
+This time around, we won't be focusing on javascript event listeners though. Instead, every event will happen on hover, which you can just use the CSS :hover pseudo-selector for. In other words, no JavaScript file required this time.
+
+Also, instead of one main box, you'll make 6 smaller boxes. Each one, when hovered, should change 2 or 3 different properties of the box that was hovered.
+
+You get to choose which properties change, but try to vary it between each box. Here's a non-exhaustive list of something you could change about each box:
+
+Background color
+Border (width, color, style)
+Border radius (can target each corner individually if you want)
+Box shadow
+Height/width
+Margin/padding (put some text inside to better see what's happening)
+Position
+Opacity
+ALSO, you must make each box smoothly transition from one style to another. (This is a CSS transitions practice, after all). */
+
+
+#box1 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: left;
+    border: 1px solid black;
+}
+
+
+#box1:hover {
+    box-shadow: none;
+    border-radius: 0;
+    background-color: red;
+    transition-duration: 500ms;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+}
+
+#box2 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: center;
+    border: 1px solid black;
+}
+
+
+#box2:hover {
+    box-shadow: none;
+    border-radius: 0;
+    background-color: blue;
+    transition-duration: 500ms;
+    opacity: 80%;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+}
+
+#box3 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: left;
+    border: 1px solid black;
+}
+
+
+#box3:hover {
+    box-shadow: none;
+    border-radius: 0;
+    background-color: green;
+    transition-duration: 500ms;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+}
+
+#box4 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: left;
+    border: 1px solid black;
+}
+
+
+#box4:hover {
+    box-shadow: none;
+    border-radius: 0;
+    background-color: yellow;
+    transition-duration: 500ms;
+    /* opacity: 50%; */
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+}
+
+#box5 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: left;
+    border: 1px solid black;
+}
+
+
+#box5:hover {
+    box-shadow: none;
+    border-radius: 0;
+    background-color: purple;
+    transition-duration: 500ms;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+}
+
+#box6 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    margin: left;
+    border: 1px solid black;
+}
+
+
+#box6:hover {
+    box-shadow: none;
+    border-radius: 0;
+    background-color: orange;
+    transition-duration: 500ms;
+    box-shadow: 10px 10px 5px 0 #999;
+    border-radius: 10%;
+}

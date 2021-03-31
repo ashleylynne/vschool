@@ -1,0 +1,120 @@
+* {
+    margin-top: 0;
+}
+
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #f6f6f6;
+}
+
+
+.header{
+    /* display: flex; */
+    margin-bottom: 50px;
+    width: 1445px;
+    height: 535px;
+    /* position: relative; */
+    background-image: url(https://startbootstrap.github.io/startbootstrap-clean-blog/img/home-bg.jpg);
+    background-color: #868e96;
+    background-size: cover;
+    background-attachment: scroll;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+
+
+.nav-container{
+    position: relative;
+    align-items: center;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+/* not able to adjust the margin-top on anything in the nav */
+
+.span1{
+    position: absolute;
+    cursor: pointer;
+    left: 30px;
+    top: 30px;
+}
+
+.span2{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.span3{
+    cursor:pointer;
+}
+
+.header-text{
+    color: #ffffff;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 30px;
+    padding-top: 100px;
+}
+
+.h1{
+    font-size: 80px;
+    font-weight: 800;
+    font-weight: bold;
+    text-align: center;
+}
+
+.h2{
+    font-size: 24px;
+    text-align: center;
+}
+
+.blogs1{
+    display: grid;
+    grid-auto-columns: repeat(6, 1fr);
+    grid-auto-rows: repeat(4, 1fr);
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 20%;
+    
+
+}
+
+.blog-title{
+    grid-column: 2/3;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    cursor: pointer;
+    
+}
+
+.blog-title:hover{
+    color: rgb(45, 109, 134);
+}
+
+.author-and-date{
+    grid-column: 2/3;
+    font-family: 'Times New Roman',serif;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.author{
+    cursor: pointer;
+}
+
+.author:hover{
+    text-decoration: underline;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 600px;
+    margin-right: 600px;
+    height: 100px;
+
+}

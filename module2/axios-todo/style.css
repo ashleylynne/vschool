@@ -1,0 +1,17 @@
+div {
+    background-color: rgb(172, 185, 189);
+    border: solid, 10px;
+    font-family: Helvetica, sans-serif;
+    color:rgb(2, 2, 66);
+    padding: 10px;
+}
+h1 {
+    color: darkgray;
+    background-color: rgb(2, 2, 66);
+    padding: 15px;
+    text-align: center;
+    
+}
+body {
+    background-color: rgb(87, 87, 87);
+};

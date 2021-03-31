@@ -1,0 +1,17 @@
+#addSection {
+    font-family: Helvetica;
+    background-color: black;
+    padding-left: 5vw;
+}
+
+#subSection {
+    font-family: Helvetica;
+    background-color: navy;
+    padding-left: 5vw;
+}
+
+#multSection {
+    font-family: Helvetica;
+    background-color: grey;
+    padding-left: 5vw;
+}

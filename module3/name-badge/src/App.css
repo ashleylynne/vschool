@@ -1,0 +1,55 @@
+html, body{
+    background-color: black;
+    margin: 0;
+}
+
+.form-container{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12,1fr);
+    padding: 10px;
+    background-color: black;
+    color: lime;
+    font-size: 48px;
+    font-family: 'Courier New', Courier, monospace;
+    border: solid 5px lime;
+    align-items: center;
+    align-self: center;
+}
+
+.label{
+    border: solid 3px #fff;
+    padding: 5px;
+    grid-column: 6/9;
+    grid-row: 2/3;
+    grid-gap: 0;
+}
+
+.form{
+    border: solid 2px #fff;
+    padding: 5px;
+    grid-column: 6/9;
+    grid-row: 3/8;
+}
+
+.namebadge > p {
+    color: #fff;
+
+}
+
+.namebadge > h3, .namebadge > p {
+    margin: 15px;
+}
+
+.namebadge{
+    border: solid 5px lime;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.full-name{
+    color: rgb(8, 178, 230);
+}
+
+.captions{
+    color: lime;
+}
