@@ -28,8 +28,17 @@ class App extends Component {
         e.preventDefault()
         const newNameBadge = {...this.state.inputs}
         delete newNameBadge.allInfo
-        this.setState(prevState => ({
-            ...prevState,
+        this.setState(prevState => ({ 
+            inputs: {
+                firstName: " " ,
+                lastName: " ",
+                age: " ",
+                email: "",
+                birthplace: "",
+                phone: "",
+                favFood: "",
+                aboutYou: "",
+            },
             allInfo: [...prevState.allInfo, newNameBadge]
         }))
         console.log(this.state)

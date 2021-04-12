@@ -3,20 +3,6 @@ var input = readline.question('What phrase would you like to encrypt? ').toLower
 var shift = parseInt(readline.question('How many letters would you like to shift? '));
 var alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-
-
-
-// Find index in alphabet and add shift variable
-// before for loop: encodedString = ""
-// in for loop:
-// find index of current letter in alphabet
-// add shift number to that index
-// add letter from alphabet of shifted index to encodedString
-
-
-
-
-
 let encodedString = "";
 
 for (let i = 0; i < input.length; i++) {
@@ -30,3 +16,9 @@ for (let i = 0; i < input.length; i++) {
 
 
 
+// Find index in alphabet and add shift variable
+// before for loop: encodedString = ""
+// in for loop:
+// find index of current letter in alphabet
+// add shift number to that index
+// add letter from alphabet of shifted index to encodedString
