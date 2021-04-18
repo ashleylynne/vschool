@@ -20,7 +20,7 @@ class ThemeContextProvider extends Component {
         return(
             <Provider value={{theme: this.state.theme, toggleTheme: this.toggleTheme}}>
                 {this.props.children}
-                <button onClick={this.toggleTheme}>Change Theme</button>
+                {/* <button onClick={this.toggleTheme}>Change Theme</button> */}
             </Provider>
         )
     }
