@@ -1,11 +1,17 @@
-/* html, body{
+html, body{
     margin: 0;
 
-} */
+}
 
-/* .header{
-    padding: 30px;
-} */
+header {
+    padding: 50px;
+}
+
+button {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
 
 .dark-theme{
     background-color: rgb(1, 11, 46);
