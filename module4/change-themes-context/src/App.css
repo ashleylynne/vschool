@@ -1,0 +1,20 @@
+/* html, body{
+    margin: 0;
+
+} */
+
+/* .header{
+    padding: 30px;
+} */
+
+.dark-theme{
+    background-color: rgb(1, 11, 46);
+    color: #fff;
+    font-family: Helvetica;
+}
+
+.light-theme{
+    background-color: #fff;
+    color: rgb(94, 104, 139);
+    font-family: Helvetica;
+}
