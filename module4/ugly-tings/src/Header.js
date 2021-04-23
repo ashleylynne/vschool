@@ -1,16 +1,16 @@
 import React from "react"
-import {ContextConsumer} from "./Context"
-import Form from "./Form"
+// import {ContextConsumer} from "./Context"
 
 const Header = () => {
     return(
-        <header>
-            <Form />
-            <ContextConsumer>
-                {/* context here tho I still don't get how to do this lol */}
-            </ContextConsumer>
-        </header>
+        <div className="header-container">
+            <header className="header">
+                <h1 className="h1">Ugly Things?</h1>
+            </header>
+        </div>
     )
 }
 
 export default Header
+
+
