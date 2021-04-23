@@ -9,7 +9,7 @@ class Form extends Component {
             img: "",
             description: "",
             title: "",
-            uglyThingsArr: []
+
         }
 
         handleChange = e => {

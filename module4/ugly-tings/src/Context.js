@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import axios from "axios"
-import UglyThingsList from "./UglyThingsList"
 
 const {Provider, Consumer} = React.createContext()
 
@@ -31,13 +30,11 @@ class ContextProvider extends Component{
     }
     
     render(){
-        const newArray = this.state.uglyThingsArr.map((thingObj, index) => {
-            <UglyThingsList key={(index, thingObj.thing)} />
-        })
+        
         console.log(this.props.children)
 
         return(
-            <Provider value={{newArray, onChange: this.handleChange, onSubmit: this.handleSubmit, }}>
+            <Provider value={{uglyThings: this.uglyThingsArr, onChange: this.handleChange, onSubmit: this.handleSubmit, }}>
                 {this.props.children}
             </Provider>
         )

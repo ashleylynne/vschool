@@ -15,16 +15,20 @@ class UglyThingsList extends Component{
 
     render(){
         return(
-
             <div>
                 <ContextConsumer>
-                    {context => (
-                        {context}
-                    )}
+                        {context => (
+                    <div>
+                            {context.uglyThingsArr.map((thingObj, index) => {
+                                { <UglyThingsList key={(index, thingObj.thing)} />}
+                            })}
+                    </div>
+                        )}
                 </ContextConsumer>
 
             </div>
         )
+        
     }
 }
 
