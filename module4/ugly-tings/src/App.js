@@ -1,12 +1,14 @@
 import React from "react"
 import Header from "./Header"
 import Form from "./Form"
+import UglyThingsList from "./UglyThingsList"
 
 const App = () => {
     return(
         <>
             <Header />
-            <Form />      
+            <Form /> 
+            <UglyThingsList />     
         </>
     )
 }
