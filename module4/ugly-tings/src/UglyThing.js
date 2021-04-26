@@ -1,14 +1,14 @@
 // // // similar to todo list where we'll insert our own data
 
-import React, { Component } from "react"
+import React from "react"
 
 
 const UglyThing = () => {
-    const {description, img, title} = this.props
+    const {description, imgUrl, title} = this.props
     return(
         <div>
             <h1>{title}</h1>,
-            <img>{img}</img>,
+            <img src={imgUrl} alt={description}></img>,
             <p>{description}</p>
         </div>
     )

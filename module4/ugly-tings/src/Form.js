@@ -6,7 +6,7 @@ import {ContextConsumer} from "./Context"
 class Form extends Component {
 
         state = {
-            img: "",
+            imgUrl: "",
             description: "",
             title: "",
 
@@ -19,12 +19,13 @@ class Form extends Component {
             })
             console.log(this.state)
         }
+        
 
         handleSubmit = e => {
             e.preventDefault()
             console.log("hi")
             const newThing = {
-                img: this.state.img.src,
+                imgUrl: this.state.imgUrl,
                 description: this.state.description,
                 title: this.state.title
             }
@@ -32,12 +33,11 @@ class Form extends Component {
                 ...prev,
                 uglyThingsArr: [...prev.uglyThingsArr, newThing]
             }))
-
-            
+ 
         }
 
         render(){
-            const {title, description, img} = this.props
+            const {title, description, imgUrl} = this.state
             
     
             return(
@@ -47,23 +47,30 @@ class Form extends Component {
                             type="text" 
                             placeholder="title"
                             name="title"
+                            onChange={this.handleChange}
                             value={title}>
                         </input>
                         <input 
                             type="text" 
                             placeholder="description"
                             name="description"
+                            onChange={this.handleChange}
                             value={description}>
                         </input>
                         <input 
                             type="text" 
                             placeholder="img url"
-                            name="img"
-                            value={img}>
+                            name="imgUrl"
+                            onChange={this.handleChange}
+                            value={imgUrl}>
                         </input>
                         <ContextConsumer>
                           {context => (
-                                <button onClick={context.handleSubmit}>Submit Ugly Thing</button>
+                                <button onClick={(e)=> {
+                                    e.preventDefault()
+                                    console.log(context)
+                                    context.postUglyThing(this.state)}}
+                                    >Submit Ugly Thing</button>
                             )}
                         </ContextConsumer>       
                     </form>

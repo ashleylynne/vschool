@@ -1,17 +1,17 @@
 import React, { Component } from "react"
 import {ContextConsumer} from "./Context"
-// import axios from "axios"
+import UglyThing from "./UglyThing"
 
 class UglyThingsList extends Component{
-
+//uglythings onchange onsubmit
     render(){
         return(
             <>
                 <ContextConsumer>
                         {context => (
-                    <div>
-                            {context.uglyThingsArr.map((thingObj, index) => {
-                                { <UglyThingsList key={(index, thingObj.thing)} />}
+                            <div>
+                            {context.uglyThings.map((thingObj, index) => {
+                                { return <UglyThing key={(index, thingObj.thing)}/>}
                             })}
                     </div>
                         )}
