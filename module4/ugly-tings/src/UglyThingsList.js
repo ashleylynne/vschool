@@ -11,7 +11,7 @@ class UglyThingsList extends Component{
                         {context => (
                             <div>
                             {context.uglyThings.map((thingObj, index) => {
-                                { return <UglyThing key={(index, thingObj.thing)}/>}
+                                 return <UglyThing key={(index, thingObj.thing)}/>
                             })}
                     </div>
                         )}

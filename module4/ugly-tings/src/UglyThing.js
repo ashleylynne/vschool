@@ -3,12 +3,12 @@
 import React from "react"
 
 
-const UglyThing = () => {
-    const {description, imgUrl, title} = this.props
+const UglyThing = (props) => {
+    const {description, imgUrl, title} = props
     return(
         <div>
-            <h1>{title}</h1>,
-            <img src={imgUrl} alt={description}></img>,
+            <h3>{title}</h3>
+            <img src={imgUrl} alt={description}></img>
             <p>{description}</p>
         </div>
     )

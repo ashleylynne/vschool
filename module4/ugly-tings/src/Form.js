@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import {ContextConsumer} from "./Context"
 
-// right now: figure out how we can push this user data to the ugly things array
 
 class Form extends Component {
 
@@ -20,17 +19,14 @@ class Form extends Component {
             console.log(this.state)
         }
 
-        handleSubmit = postUglyThing => {
+        handleSubmit = (e, postUglyThing) => {
+            e.preventDefault()
             console.log("hi")
             const newThing = {
                 imgUrl: this.state.imgUrl,
                 description: this.state.description,
                 title: this.state.title
             }
-            this.setState(prev => ({
-                ...prev,
-                uglyThingsArr: [...prev.uglyThingsArr, newThing]
-            }))
             postUglyThing(newThing)
  
         }
@@ -40,7 +36,9 @@ class Form extends Component {
             
             return(
                 <div className="form-container">
-                    <form className="form" onSubmit={this.handleSubmit}>
+                    <ContextConsumer>
+                    {context => (
+                    <form className="form" onSubmit={e => this.handleSubmit(e, context.postUglyThing)}>
                         <input 
                             type="text" 
                             placeholder="title"
@@ -62,18 +60,10 @@ class Form extends Component {
                             onChange={this.handleChange}
                             value={imgUrl}>
                         </input>
-                        <ContextConsumer>
-                          {context => (
-                                <button onClick={(e)=> {
-                                    e.preventDefault()
-                                    // console.log(context)
-                                    {handleSubmit(context.postUglything)}
-                                }}>
-                                    {/* <button onClick = {()=>handleSubmit(context.postUglything)} */}
-                                    Submit Ugly Thing</button>
+                                <button>Submit Ugly Thing</button>
+                    </form>
                             )}
                         </ContextConsumer>       
-                    </form>
                 </div>
             )
         }

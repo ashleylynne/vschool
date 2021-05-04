@@ -42,8 +42,7 @@ class ContextProvider extends Component{
         })
         
     }
-
-    
+   
     render(){
         console.log(this.state.uglyThingsArr,12345)
         
@@ -54,7 +53,6 @@ class ContextProvider extends Component{
                 uglyThings: this.state.uglyThingsArr, 
                 onChange: this.handleChange, 
                 postUglyThing: this.postUglyThing,
-                onSubmit: this.onSubmit
                  
             }}>
                 {this.props.children}
