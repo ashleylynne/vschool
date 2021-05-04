@@ -19,10 +19,8 @@ class Form extends Component {
             })
             console.log(this.state)
         }
-        
 
-        handleSubmit = e => {
-            e.preventDefault()
+        handleSubmit = postUglyThing => {
             console.log("hi")
             const newThing = {
                 imgUrl: this.state.imgUrl,
@@ -33,16 +31,16 @@ class Form extends Component {
                 ...prev,
                 uglyThingsArr: [...prev.uglyThingsArr, newThing]
             }))
+            postUglyThing(newThing)
  
         }
 
         render(){
             const {title, description, imgUrl} = this.state
             
-    
             return(
                 <div className="form-container">
-                    <form className="form">
+                    <form className="form" onSubmit={this.handleSubmit}>
                         <input 
                             type="text" 
                             placeholder="title"
@@ -68,9 +66,11 @@ class Form extends Component {
                           {context => (
                                 <button onClick={(e)=> {
                                     e.preventDefault()
-                                    console.log(context)
-                                    context.postUglyThing(this.state)}}
-                                    >Submit Ugly Thing</button>
+                                    // console.log(context)
+                                    {handleSubmit(context.postUglything)}
+                                }}>
+                                    {/* <button onClick = {()=>handleSubmit(context.postUglything)} */}
+                                    Submit Ugly Thing</button>
                             )}
                         </ContextConsumer>       
                     </form>

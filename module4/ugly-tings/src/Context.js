@@ -31,7 +31,6 @@ class ContextProvider extends Component{
         
     }
     
-
     postUglyThing = (thing) => {
         console.log("post")
         axios.post("https://api.vschool.io/ashleystanley/thing", thing)
