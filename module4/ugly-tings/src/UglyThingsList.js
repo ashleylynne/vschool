@@ -5,7 +5,6 @@ import UglyThing from "./UglyThing"
 class UglyThingsList extends Component{
 //uglythings onchange onsubmit
     render(){
-        // const {title, description, imgUrl} = props
         return(
             <>
                 <ContextConsumer>
