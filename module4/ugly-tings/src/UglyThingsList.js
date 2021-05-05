@@ -5,15 +5,16 @@ import UglyThing from "./UglyThing"
 class UglyThingsList extends Component{
 //uglythings onchange onsubmit
     render(){
+        // const {title, description, imgUrl} = props
         return(
             <>
                 <ContextConsumer>
                         {context => (
                             <div>
-                            {context.uglyThings.map((thingObj, index) => {
-                                 return <UglyThing key={(index, thingObj.thing)}/>
-                            })}
-                    </div>
+                                {context.uglyThings.map(thing => {
+                                    return <UglyThing title={thing.title} description={thing.description} imgUrl={thing.imgUrl}/> 
+                                })}
+                        </div>
                         )}
                 </ContextConsumer>
 

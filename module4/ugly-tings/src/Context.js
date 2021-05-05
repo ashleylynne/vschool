@@ -42,6 +42,18 @@ class ContextProvider extends Component{
         })
         
     }
+
+    deleteUglyThing = (id) => {
+        console.log("delete")
+        axios.delete("https://api.vschool.io/ashleystanley/thing"+id)
+            .then(res => {
+                console.log(res.data)
+                this.setState(prev => ({
+                    uglyThingsArr: [...prev.uglyThingsArr.filter(thing => thing._id) !==id]
+                }))
+            })
+            .catch(err => console.log(err))
+    }
    
     render(){
         console.log(this.state.uglyThingsArr,12345)
@@ -53,6 +65,7 @@ class ContextProvider extends Component{
                 uglyThings: this.state.uglyThingsArr, 
                 onChange: this.handleChange, 
                 postUglyThing: this.postUglyThing,
+                delete: this.deleteUglyThing
                  
             }}>
                 {this.props.children}
