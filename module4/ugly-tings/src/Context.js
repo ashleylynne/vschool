@@ -45,27 +45,46 @@ class ContextProvider extends Component{
 
     deleteUglyThing = (id) => {
         console.log("delete")
-        axios.delete("https://api.vschool.io/ashleystanley/thing"+id)
+        axios.delete("https://api.vschool.io/ashleystanley/thing/"+id)
             .then(res => {
                 console.log(res.data)
-                this.setState(prev => ({
-                    uglyThingsArr: [...prev.uglyThingsArr.filter(thing => thing._id) !==id]
-                }))
+                this.setState(prev => {
+                const updatedArray = prev.uglyThingsArr.filter(thing => thing._id !==id)
+                return{
+                    uglyThingsArr: updatedArray
+                }
             })
+        })
             .catch(err => console.log(err))
     }
+// const updatedArray = prev.uglyThingsArr.map(thing => thing._id === id ? return input : return thing )
+
+    putThing = (id) => {
+        console.log("Edit!")
+        axios.put("https://api.vschool.io/ashleystanley/thing/" + id)
+            .then(res => {
+                console.log(res)
+                this.setState(prev => {
+                    const newArray = prev.uglyThingsArr.map(thing => thing._id === id? this.state : thing)
+                    return {
+                        uglyThingsArr: newArray
+                    }
+                })
+            })
+    }
+
    
     render(){
-        console.log(this.state.uglyThingsArr,12345)
-        
-        console.log(this.props.children)
+        // console.log(this.state.uglyThingsArr,12345)
+        // console.log(this.props.children)
 
         return(
             <Provider value={{
                 uglyThings: this.state.uglyThingsArr, 
                 onChange: this.handleChange, 
                 postUglyThing: this.postUglyThing,
-                delete: this.deleteUglyThing
+                delete: this.deleteUglyThing,
+                edit: this.putThing
                  
             }}>
                 {this.props.children}

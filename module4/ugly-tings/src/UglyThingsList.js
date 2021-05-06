@@ -11,7 +11,7 @@ class UglyThingsList extends Component{
                         {context => (
                             <div>
                                 {context.uglyThings.map(thing => {
-                                    return <UglyThing title={thing.title} description={thing.description} imgUrl={thing.imgUrl}/> 
+                                    return <UglyThing title={thing.title} description={thing.description} imgUrl={thing.imgUrl} _id={thing._id}/> 
                                 })}
                         </div>
                         )}
@@ -24,8 +24,3 @@ class UglyThingsList extends Component{
 }
 
 export default UglyThingsList
-
-// only states: context to control array and form to control inputs
-// consumers: form, uglytings -- map through and render
-
-// uglyTings component -- doesn't need state but needs component did mount
