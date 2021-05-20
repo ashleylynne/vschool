@@ -21,16 +21,18 @@ class UglyThing extends Component {
         })
     }
 
-    submitNewEdit = (e, thing, title, description, imgUrl, putThing) => {
+    submitNewEdit = (e, _id, putThing) => {
         e.preventDefault()
         const newThingObj = {
-            "thing": thing,
-            "title": title,
-            "description": description,
-            "imgUrl": imgUrl
+            "_id": _id,
+            "title": this.state.title,
+            "description": this.state.description,
+            "imgUrl": this.state.imgUrl
         }
         putThing(newThingObj)
-        // ^^ getting an error that this is not a function when i submit
+        this.setState({
+            editMode: false
+        })
     }
 
     render(){
@@ -40,25 +42,28 @@ class UglyThing extends Component {
             <ContextConsumer>
                 {context =>(
                     <div className="edit-form-container">
-                        <form className="edit-form" onSubmit={e => this.submitNewEdit(e, context.edit)}>
+                        <form className="edit-form" onSubmit={e => this.submitNewEdit(e, _id, context.edit)} autoComplete="off">
                             <input
                                 type = "text"
                                 placeholder = "title"
-                                value={this.state.name}
+                                name = "title"
+                                value={this.state.title}
                                 onChange={this.handleChange}
                             >
                             </input>
                             <input
                                 type= "text"
                                 placeholder="description"
-                                value={this.state.name}
+                                name = "description"
+                                value={this.state.description}
                                 onChange={this.handleChange}
                             >
                             </input>
                             <input
                                 type="text"
                                 placeholder="imgUrl"
-                                value={this.state.name}
+                                name = "imgUrl"
+                                value={this.state.imgUrl}
                                 onChange={this.handleChange}
                             >
                             </input>
@@ -73,7 +78,7 @@ class UglyThing extends Component {
             <ContextConsumer>
                 {context=>(
                     <div>
-                        <h3>{title}</h3>
+                        <h3 className="h3">{title}</h3>
                         <img src={imgUrl} alt={description}></img>
                         <button onClick={() => context.delete(_id)}>Delete</button>
                         <button onClick={this.handleEditMode}>Edit</button>                   

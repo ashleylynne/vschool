@@ -23,6 +23,10 @@ html, body {
     font-size: 74px;
 }
 
+.h3 {
+    color: #fff
+}
+
 
 .form-container{
     display: grid;

@@ -38,7 +38,7 @@ class Form extends Component {
                 <div className="form-container">
                     <ContextConsumer>
                     {context => (
-                    <form className="form" onSubmit={e => this.handleSubmit(e, context.postUglyThing)}>
+                    <form className="form" onSubmit={e => this.handleSubmit(e, context.postUglyThing)} autoComplete="off">
                         <input 
                             type="text" 
                             placeholder="title"

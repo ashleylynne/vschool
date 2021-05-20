@@ -59,13 +59,13 @@ class ContextProvider extends Component{
     }
 // const updatedArray = prev.uglyThingsArr.map(thing => thing._id === id ? return input : return thing )
 
-    putThing = (id) => {
+    putThing = (thing) => {
         console.log("Edit!")
-        axios.put("https://api.vschool.io/ashleystanley/thing/" + id)
+        axios.put(`https://api.vschool.io/ashleystanley/thing/${thing._id}`, thing)
             .then(res => {
                 console.log(res)
                 this.setState(prev => {
-                    const newArray = prev.uglyThingsArr.map(thing => thing._id === id? this.state : thing)
+                    const newArray = prev.uglyThingsArr.map(item => item._id === thing._id? thing : item)
                     return {
                         uglyThingsArr: newArray
                     }
