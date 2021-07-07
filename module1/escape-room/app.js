@@ -18,7 +18,7 @@ while (play !== "yes") {
     if (play === "yes") {
         console.log(" Ok! Let's play..");
         break;
-    } // This loop runs continously how do I stop it? I just want it to loop back to the question.
+    }
 } 
 
 console.log("You are stuck in a dark room with three options:")

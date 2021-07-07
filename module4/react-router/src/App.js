@@ -1,4 +1,5 @@
 import React from "react"
+import "./App.css"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 
@@ -6,9 +7,11 @@ import Footer from "./Footer"
 function App() {
     return(
         <>
-            {/* App data: Navbar, Body, Footer */}
-            <Navbar />
-            <Footer />
+            <div className="app-container">
+                {/* App data: Navbar, Body, Footer */}
+                <Navbar />
+                <Footer />
+            </div>
         </>
 
     )
