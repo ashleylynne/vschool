@@ -2,9 +2,10 @@ const express = require("express")
 const uuid = require("uuid").v4
 const bountyRouter = express.Router()
 
+
 // Data
 
-const bounties = [
+let bounties = [
     {firstName: "cad", lastName: "bane", isAlive: true, bountyAmount: 50000, type: "sith", _id: uuid()},
     {firstName: "boba", lastName: "fett", isAlive: true, bountyAmount: 10000, type: "sith", _id: uuid()},
     {firstName: "zam", lastName: "wessell", isAlive: false, bountyAmount: 100000, type: "sith", _id: uuid()},
@@ -12,40 +13,49 @@ const bounties = [
     {firstName: "embo", lastName: "n/a", isAlive: true, bountyAmount: 1519800, type: "sith", _id: uuid()}
 ]
 
-
 // Routes
 
 // get all
-bountyRouter.route("/bounties")
-    .get((req, res)=> {
-        res.send(bounties)
-    })
+
+bountyRouter.get("/", (req, res) => {
+		res.send(bounties)
+	})
 
 // post
-    .post((req, res) => {
+    .post("/", (req, res) => {
         const newBounty = req.body
         newBounty._id = uuid()
         bounties.push(newBounty)
-        res.send(`Successfully added ${newBounty} to the database!`)
+        res.send(`Successfully added ${newBounty.firstName} to the database!`)
     })
 
 
 // Part 2 - Adding PUT & DELETE
-
-bountyRouter.route("bounties/:bountyId")
-    // get one
-    .get((req, res) => {
-        res.send(`GET req /bounties/${req.params.bountyId} endpoint`)
+// get one
+bountyRouter.get("/:bountyId", (req, res) => {
+        const bountyId = req.params.bountyId
+        const foundBounty = bounties.find((bounty) => bounty._id === bountyId)
+        if (!foundBounty) {
+            const error = new Error("The item was not found")
+            next(error)
+        }
+        res.send(foundBounty)
     })
 
     // put
-    .put((req, res) => {
-        res.send(`Put req /${req.params.bountyId} endpoint`)
+    .put("/:bountyId", (req, res) => {
+        const bountyId = req.params.bountyId
+        const bountyIndex = bounties.findIndex((bounty) => bounty._id === bountyId)
+        const updateBounty = Object.assign(bounties[bountyIndex], req.body)
+        res.send(updateBounty)
     })
 
     // delete
-    .delete((req, res)=> {
-        res.send(`Delete req /${req.params.bountyId} from the databases`)
+    .delete("/:bountyId", (req, res)=> {
+        const bountyId = req.params.bountyId
+        const bountyIndex = bounties.findIndex((bounty) => bounty._id === bountyId)
+        let deletedBounty = bounties.splice(bountyIndex, 1)
+        res.send(`Deleted ${deletedBounty} from database!`)
     })
 
 
