@@ -8,7 +8,7 @@ app.use(express.json())
 
 
 // middleware
-app.use("/api/bounties", bountyRouter)
+app.use("/bounties", bountyRouter)
 
 
 app.listen(9000, () => {

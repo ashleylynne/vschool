@@ -13,14 +13,12 @@ function ContextProvider (props) {
     // const [newBounty, setNewBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
 
 useEffect(() => {
-    axios.get("/api/")
+    axios.get("http://localhost:9000/bounties")
         .then(res => {
-            setBountiesData(res.data)
-                console.log(bountiesData)
+            setBountiesData(res.json())
+            console.log(bountiesData)
         })
 })
-
-
 
     return(
         <Context.Provider>
