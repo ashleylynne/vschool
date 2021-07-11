@@ -29,7 +29,6 @@ bountyRouter.get("/", (req, res) => {
         res.send(`Successfully added ${newBounty.firstName} to the database!`)
     })
 
-
 // Part 2 - Adding PUT & DELETE
 // get one
 bountyRouter.get("/:bountyId", (req, res) => {
@@ -57,6 +56,5 @@ bountyRouter.get("/:bountyId", (req, res) => {
         let deletedBounty = bounties.splice(bountyIndex, 1)
         res.send(`Deleted ${deletedBounty} from database!`)
     })
-
 
 module.exports = bountyRouter

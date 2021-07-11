@@ -6,8 +6,10 @@ const app = express()
 
 app.use(express.json())
 
+
 // middleware
-app.use("/bounties", bountyRouter)
+app.use("/api/bounties", bountyRouter)
+
 
 app.listen(9000, () => {
     console.log("hey im running on 9000!")
