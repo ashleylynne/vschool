@@ -3,7 +3,7 @@ import { Context } from "./contextProvider"
 
 function Bounty(){
     
-    const {bounty, handleSubmit} = useContext(Context)
+    const {bounty, handleSubmit, handleDelete} = useContext(Context)
 
     return(
         <div className="bounties">
@@ -12,6 +12,7 @@ function Bounty(){
             <p>{bounty.bountyAmount} credits</p>
             
             <button onClick={handleSubmit}>get bounty</button>
+            <button onClick={handleDelete}>delete bounty</button>
         </div>
     )
 }

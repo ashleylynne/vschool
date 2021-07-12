@@ -8,11 +8,11 @@ const Context = React.createContext()
 
 function ContextProvider (props) {
 
-    // let bounties = []
     const [bountiesData, setBountiesData] = useState()
     const [bounty, setBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
     const [userBounty, setUserBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
     const [name, setName] = useState("")
+    const [bountiesArray, setBountiesArray] = useState()
 
     useEffect(() => {
         axios.get("/bounties")
@@ -53,14 +53,18 @@ function ContextProvider (props) {
             console.log(userBounty)
 
     }
+
+    const handleDelete = _id => {
+        console.log("delete!", _id)
+        setBountiesArray(bountiesArray.filter((bounty) => bounty._id !== _id))
+    }
     
     return(
-        <Context.Provider value={{bountiesData, handleSubmit, bounty, handleChange, handlePost}}>
+        <Context.Provider value={{bountiesData, handleSubmit, bounty, handleChange, handlePost, handleDelete}}>
             {props.children}
         </Context.Provider>
     )
 
 }
-
 
 export {ContextProvider, Context}
