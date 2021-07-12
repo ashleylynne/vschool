@@ -11,7 +11,7 @@ function ContextProvider (props) {
     // let bounties = []
     const [bountiesData, setBountiesData] = useState()
     const [bounty, setBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
-    // const [userBounty, setUserBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
+    const [userBounty, setUserBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
     const [name, setName] = useState("")
 
     useEffect(() => {
@@ -43,12 +43,16 @@ function ContextProvider (props) {
         
     }
     
-        const handlePost = e => {
-            e.preventDefault()
-            console.log("new post!")
-    
-        }
+    const handlePost = e => {
+        e.preventDefault()
+        console.log("new post!", 12345678)
+        axios.post("/bounties")
+            .then(res =>{
+                setUserBounty(res.data)
+            })
+            console.log(userBounty)
 
+    }
     
     return(
         <Context.Provider value={{bountiesData, handleSubmit, bounty, handleChange, handlePost}}>

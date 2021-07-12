@@ -7,7 +7,7 @@ function BountyForm(){
 
     return(
         <div>
-            <form name="form" onSubmit={handlePost}>
+            <form name="form">
                 <input onChange={handleChange} type="text" value={name} placeholder="first name"></input>
                 <input onChange={handleChange} type="text" value={name} placeholder="last name"></input>
                 <select>
@@ -18,7 +18,7 @@ function BountyForm(){
                 <input onChange={handleChange} type="radio" value="Alive" name="isAlive"></input> Alive
                 <input onChange={handleChange} type="radio" value = "Dead" name="isAlive"></input> Dead
             </form>
-                <button onChange={handleChange} type="submit">new post</button>
+                <button onChange={handleChange} type="submit" onClick={handlePost}>new post</button>
         </div>
     )
 }
