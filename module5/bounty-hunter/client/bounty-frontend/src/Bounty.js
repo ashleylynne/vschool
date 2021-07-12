@@ -1,10 +1,7 @@
 import React, {useContext} from "react"
 import { Context } from "./contextProvider"
 
-
-
-
-function Bounty(props){
+function Bounty(){
     
     const {bounty, handleSubmit} = useContext(Context)
 

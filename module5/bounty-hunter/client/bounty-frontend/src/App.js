@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="App">
         <h1>Bounty Hunter</h1>
-        <Bounty />
         <BountyForm />
+        <Bounty />
         
     </div>
   )
