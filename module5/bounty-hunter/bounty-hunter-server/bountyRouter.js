@@ -26,7 +26,7 @@ bountyRouter.get("/", (req, res) => {
         const newBounty = req.body
         newBounty._id = uuid()
         bounties.push(newBounty)
-        res.send(`Successfully added your new bounty to the database!`)
+        res.status(200).send(`Successfully added ${newBounty.firstName} ${newBounty.lastName} to the database!`)
     })
 
 // Part 2 - Adding PUT & DELETE

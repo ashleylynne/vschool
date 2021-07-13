@@ -11,8 +11,8 @@ function ContextProvider (props) {
     const [bountiesData, setBountiesData] = useState()
     const [bounty, setBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
     const [userBounty, setUserBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
-    const [name, setName] = useState("")
-    const [bountiesArray, setBountiesArray] = useState()
+    const [newBounty, setNewBounty] = useState({})
+    const [bountiesArray, setBountiesArray] = useState([])
 
     useEffect(() => {
         axios.get("/bounties")
@@ -29,6 +29,7 @@ function ContextProvider (props) {
 
     }, [bountiesData])
    
+    // get one random bonuty
     const handleSubmit = e => {
         e.preventDefault()
         console.log("got bounty!")
@@ -36,27 +37,30 @@ function ContextProvider (props) {
         setBounty(randomBounty)
         console.log(bounty)
     }
-    
+
     const handleChange = e => {
-        setName(e.target.value) 
-        console.log(name)
-        
+        const {name, value} = e.target
+        setNewBounty(prevState => ({
+            ...prevState, 
+            [name]: value
+        }))
+        console.log(newBounty)   
     }
     
+    // post one userbounty to the database
     const handlePost = e => {
         e.preventDefault()
         console.log("new post!", 12345678)
-        axios.post("/bounties")
+        axios.post("/bounties", newBounty)
             .then(res =>{
                 setUserBounty(res.data)
             })
             console.log(userBounty)
-
     }
-
+    // delete one bounty
     const handleDelete = _id => {
         console.log("delete!", _id)
-        setBountiesArray(bountiesArray.filter((bounty) => bounty._id !== _id))
+        setBountiesArray([bountiesArray.filter((bounty) => bounty._id !== _id)])
     }
     
     return(
