@@ -3,16 +3,14 @@ import {useState, useEffect} from "react"
 import axios from "axios"
 
 
-
 const Context = React.createContext()
 
 function ContextProvider (props) {
 
-    const [bountiesData, setBountiesData] = useState()
+    const [bountiesData, setBountiesData] = useState([])
     const [bounty, setBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
     const [userBounty, setUserBounty] = useState({firstName: "", lastName: "", isAlive: "", bountyAmount: 0, type: "", _id: 0})
     const [newBounty, setNewBounty] = useState({})
-    const [bountiesArray, setBountiesArray] = useState([])
 
     useEffect(() => {
         axios.get("/bounties")
@@ -60,11 +58,17 @@ function ContextProvider (props) {
     // delete one bounty
     const handleDelete = id => {
         console.log("delete!", id)
-        setBountiesArray((prevState) => (
-            prevState.filter((bounty) => bounty.id !== id)
-        ))
-        // setBountiesArray([bountiesArray.filter((bounty) => bounty._id !== _id)])
-        console.log(bountiesArray)
+        axios.delete(`/bounties/${id}`)
+            .then(res => {
+                setBountiesData((prevState) => (
+                    prevState.filter((bounty) => bounty._id !== id)
+                ))
+            })
+            .catch(err=>{
+                console.log(err)
+            })
+        // setBountiesData([bountiesData.filter((bounty) => bounty._id !== _id)])
+        console.log(bountiesData)
     }
     
     return(
