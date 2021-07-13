@@ -58,9 +58,13 @@ function ContextProvider (props) {
             console.log(userBounty)
     }
     // delete one bounty
-    const handleDelete = _id => {
-        console.log("delete!", _id)
-        setBountiesArray([bountiesArray.filter((bounty) => bounty._id !== _id)])
+    const handleDelete = id => {
+        console.log("delete!", id)
+        setBountiesArray((prevState) => (
+            prevState.filter((bounty) => bounty.id !== id)
+        ))
+        // setBountiesArray([bountiesArray.filter((bounty) => bounty._id !== _id)])
+        console.log(bountiesArray)
     }
     
     return(
