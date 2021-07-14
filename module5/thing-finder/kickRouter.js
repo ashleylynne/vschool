@@ -15,7 +15,7 @@ let kicks = [
 kickRouter.get("/", (req, res) => {
     res.send(kicks)
 })
-
+    // POST one
     .post("/", (req, res) => {
         // new kick object
         const newKick = req.body
@@ -27,7 +27,7 @@ kickRouter.get("/", (req, res) => {
         res.send(`${newKick}`)
     })
 
-    // get one
+    // GET one
     kickRouter.get("/:kickId", (req, res) => {
         // id
         const kickId = req.params.kickId
@@ -37,7 +37,27 @@ kickRouter.get("/", (req, res) => {
         res.send(foundKick)
     })
     
+    // DELETE one
+
+    kickRouter.delete("/:kickId", (req, res) => {
+        // get id
+        const kickId = req.params.kickId
+        //  get index of item
+        const kickIndex = kicks.findIndex((kick) => kick._id === kickId)
+        // splice it out by the index
+        kicks.splice(kickIndex, 1)
+        res.send(`Successfully deleted your kick!`)
+    })
         
+    // PUT one
+
+    kickRouter.put("/:kickId", (req, res) => {
+        const kickId = req.params.kickId
+        const kickIndex = kicks.findIndex((kick) => kick._id === kickId)
+        const updateObject = req.body
+        const updatedKick = Object.assign(kicks[kickIndex], updateObject)
+        res.send(updatedKick)
+    })
 
 
 module.exports = kickRouter
