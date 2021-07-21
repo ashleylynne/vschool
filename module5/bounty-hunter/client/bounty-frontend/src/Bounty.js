@@ -4,7 +4,7 @@ import BountyForm from "./BountyForm"
 
 function Bounty(){
     
-    const {bounty, handleSubmit, handleDelete} = useContext(Context)
+    const {bounty, handleSubmit, handleDelete, handleUpdate} = useContext(Context)
     const [editToggle, setEditToggle] = useState(false)
     console.log(bounty._id)
     return(
@@ -29,6 +29,7 @@ function Bounty(){
                 firstName = {bounty.firstName}
                 lastName = {bounty.lastName}
                 amount = {bounty.amount}
+                onSubmit = {handleUpdate}
             />
             <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>
                 Close
