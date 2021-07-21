@@ -4,10 +4,9 @@ import { Context } from "./contextProvider"
 function BountyForm(){
 
     const {handlePost, handleChange, name} = useContext(Context)
-
     return(
-        <div>
-            <form name="form" value={name}>
+        <>
+            <form name="form" value={name} onSubmit={() => handlePost}>
                 <input onChange={handleChange} type="text" value={name} name="firstName" placeholder="first name"></input>
                 <input onChange={handleChange} type="text" value={name} name="lastName" placeholder="last name"></input>
                 <select>
@@ -18,8 +17,8 @@ function BountyForm(){
                 <input onChange={handleChange} type="radio" value={true} name='isAlive'></input> Alive
                 <input onChange={handleChange} type="radio" value ={false} name="isAlive"></input> Dead
             </form>
-                <button onChange={handleChange} type="submit" onClick={handlePost}>new post</button>
-        </div>
+                <button onChange={handleChange} type="submit">new post</button>
+        </>
     )
 }
 

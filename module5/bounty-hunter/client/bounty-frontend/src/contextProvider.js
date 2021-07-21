@@ -67,12 +67,19 @@ function ContextProvider (props) {
             .catch(err=>{
                 console.log(err)
             })
-        // setBountiesData([bountiesData.filter((bounty) => bounty._id !== _id)])
         console.log(bountiesData)
     }
     
+    // update one bounty
+    const handleUpdate = (updates, id) => {
+        console.log("update!")
+        axios.put(`/bounties/${id}`, updates)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+    }
+
     return(
-        <Context.Provider value={{bountiesData, handleSubmit, bounty, handleChange, handlePost, handleDelete}}>
+        <Context.Provider value={{bountiesData, handleSubmit, bounty, handleChange, handlePost, handleDelete, handleUpdate}}>
             {props.children}
         </Context.Provider>
     )
