@@ -29,7 +29,7 @@ function Bounty(){
                 firstName = {bounty.firstName}
                 lastName = {bounty.lastName}
                 amount = {bounty.amount}
-                onSubmit = {handleUpdate}
+                submit = {handleUpdate}
             />
             <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>
                 Close
@@ -40,7 +40,6 @@ function Bounty(){
         </div>
     )
 }
-
 
 
 export default Bounty
