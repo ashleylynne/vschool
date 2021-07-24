@@ -3,7 +3,7 @@ import { Context } from "./contextProvider"
 
 function BountyForm(props){
 
-    const {handlePost, handleChange, userBounty} = useContext(Context)
+    const {handleChange, userBounty} = useContext(Context)
     return(
         <>
             <form name="form" onSubmit={props.submit}>
