@@ -6,7 +6,7 @@ import {Context} from "./contextProvider"
 function EditForm(props) {
     const {handleChange, userBounty} = useContext(Context)
     return(
-        <div>
+        <div className="edit-form-container">
             <form className="edit-form" onSubmit={props.submit}>
             <input onChange={handleChange} type="text" value={userBounty.firstName} name="firstName" ></input>
                 <input onChange={handleChange} type="text" value={userBounty.lastName} name="lastName" ></input>

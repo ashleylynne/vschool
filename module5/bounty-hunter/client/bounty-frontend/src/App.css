@@ -33,6 +33,7 @@ html, body {
 
 .form{
     grid-column: 4/7;
+    font-family: Helvetica, sans-serif;
 }
 
 .bounty-container{
@@ -42,10 +43,26 @@ html, body {
     /* padding: 25px; */
 }
 
+.display-bounty-container{
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    margin-right: 30px;
+}
+
 .bounties{
-    grid-column: 4/6;
+    grid-column: 4/10;
     font-family: Helvetica, sans-serif;
-    color: #c3c7b3
+    color: #3d3337;
+    
+}
+
+.edit-form-container{
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+}
+
+.edit-form{
+    grid-column: 5/9;
 }
 
 .buttons{

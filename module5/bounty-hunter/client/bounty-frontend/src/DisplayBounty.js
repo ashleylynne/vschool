@@ -7,7 +7,7 @@ function DisplayBounty(props) {
     const {handleDelete, handleUpdate, handleChange, userBounty, setUserBounty} = useContext(Context)
     const [editToggle, setEditToggle] = useState(false)
     return(
-        <div className="bounty-container">
+        <div className="display-bounty-container">
             { !editToggle ?
             <div className="bounties">
                 <h3 className="name">
@@ -21,7 +21,7 @@ function DisplayBounty(props) {
                 <p>{props.bounty.type}</p>
                 <p>{props.bounty.bountyAmount}</p>
                 <p>{props.bounty.isAlive}</p>
-                <button onClick={(e) =>{
+                <button className="buttons" onClick={(e) =>{
                     e.preventDefault()
                     const children = e.target.parentElement.children
                     setUserBounty({
