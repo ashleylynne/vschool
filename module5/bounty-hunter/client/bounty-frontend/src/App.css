@@ -1,0 +1,62 @@
+html, body {
+    margin: 0;
+    background-color: #ab866d;
+}
+
+.app-container{
+    display: grid;
+    grid-auto-columns: repeat(13, 1fr);
+}
+
+.header-container{
+    /* background-color: #3f3539; */
+    /* background-color: #bcc8db; */
+    background-color: #4d596e;
+    display: grid;
+    grid-auto-columns: repeat(13, 1fr);
+    padding: 25px; 
+}
+
+.header-text{
+    color: #688fb8;
+    grid-column: 4/7;
+    font-family: Helvetica, sans-serif;
+    font-size: 100px;    
+}
+
+.form-container{
+    background-color: #bcc8db;
+    padding: 15px;
+    display: grid;
+    grid-auto-columns: repeat(13, 1fr);
+}
+
+.form{
+    grid-column: 4/7;
+}
+
+.bounty-container{
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    margin-right: 30px;
+    /* padding: 25px; */
+}
+
+.bounties{
+    grid-column: 4/6;
+    font-family: Helvetica, sans-serif;
+    color: #c3c7b3
+}
+
+.buttons{
+    font-family: 'Helvetica';
+}
+
+.name{
+    color:#3d3337;
+}
+
+
+
+
+

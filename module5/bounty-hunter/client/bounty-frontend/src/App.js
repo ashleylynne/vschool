@@ -3,6 +3,7 @@ import Bounty from "./Bounty"
 import DisplayBounty from "./DisplayBounty"
 import BountyForm from "./BountyForm"
 import {Context} from "./contextProvider"
+import "./App.css"
 
 
 function App() {
@@ -11,8 +12,12 @@ function App() {
   const mappedThroughBounty = bountiesData.map(bounty => <DisplayBounty bounty= {bounty} />)
 
   return (
-    <div className="App">
-        <h1>Bounty Hunter</h1>
+    <div className="app-container">
+      <div className="header-container">
+        <h1 className="header-text">
+          Bounty Hunter
+        </h1>
+      </div>
         <BountyForm submit={handlePost}/>
         <Bounty />
         {mappedThroughBounty}

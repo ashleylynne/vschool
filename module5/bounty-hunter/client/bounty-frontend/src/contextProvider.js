@@ -9,7 +9,7 @@ function ContextProvider (props) {
 
     const [bountiesData, setBountiesData] = useState([])
     const [bounty, setBounty] = useState({firstName: "", lastName: "", isAlive: true, bountyAmount: 0, type: "", _id: 0})
-    const [userBounty, setUserBounty] = useState({firstName: "", lastName: "", isAlive: true, bountyAmount: 0, type: "sith", _id: 0})
+    const [userBounty, setUserBounty] = useState({firstName: "", lastName: "", isAlive: true, bountyAmount: 0, type: "sith"})
 
    
     useEffect(() => {
@@ -77,10 +77,9 @@ function ContextProvider (props) {
     }
     
     // update one bounty
-    const handleUpdate = e => {
-        e.preventDefault()
+    const handleUpdate = id => {
         console.log("update!")
-        axios.put(`/bounties/${bounty._id}`, userBounty)
+        axios.put(`/bounties/${id}`, userBounty)
             .then(res => {console.log(res) 
             getBountyData()
         })
@@ -89,7 +88,7 @@ function ContextProvider (props) {
     }
 
     return(
-        <Context.Provider value={{bountiesData, userBounty, handleSubmit, bounty, handleChange, handlePost, handleDelete, handleUpdate}}>
+        <Context.Provider value={{setUserBounty, bountiesData, userBounty, handleSubmit, bounty, setBounty, handleChange, handlePost, handleDelete, handleUpdate}}>
             {props.children}
         </Context.Provider>
     )
