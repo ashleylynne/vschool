@@ -1,6 +1,6 @@
 import React, {useContext} from "react"
 import Bounty from "./Bounty"
-import DisplayBounty from "./DisplayBounty"
+// import DisplayBounty from "./DisplayBounty"
 import BountyForm from "./BountyForm"
 import {Context} from "./contextProvider"
 import "./App.css"
@@ -9,7 +9,7 @@ import "./App.css"
 function App() {
 
   const {bountiesData, handlePost} = useContext(Context)
-  const mappedThroughBounty = bountiesData.map(bounty => <DisplayBounty bounty= {bounty} />)
+  const mappedThroughBounty = bountiesData.map(bounty => <Bounty bounty= {bounty} />)
 
   return (
     <div className="app-container">
@@ -19,7 +19,7 @@ function App() {
         </h1>
       </div>
         <BountyForm submit={handlePost}/>
-        <Bounty />
+        {/* <Bounty /> */}
         {mappedThroughBounty}
     </div>
   )

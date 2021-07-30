@@ -2,9 +2,9 @@ import React, {useContext, useState} from "react"
 import { Context } from "./contextProvider"
 import BountyForm from "./BountyForm"
 
-function Bounty(){
+function Bounty({bounty}){
     
-    const {bounty, handleSubmit, handleDelete, handleUpdate, setBounty, setUserBounty} = useContext(Context)
+    const {handleSubmit, handleDelete, handleUpdate, setBounty, setUserBounty} = useContext(Context)
     const [editToggle, setEditToggle] = useState(false)
     console.log(bounty._id)
     return(

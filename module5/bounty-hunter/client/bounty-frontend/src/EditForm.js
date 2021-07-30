@@ -8,7 +8,7 @@ function EditForm(props) {
     return(
         <div className="edit-form-container">
             <form className="edit-form" onSubmit={props.submit}>
-            <input onChange={handleChange} type="text" value={userBounty.firstName} name="firstName" ></input>
+                <input onChange={handleChange} type="text" value={userBounty.firstName} name="firstName" ></input>
                 <input onChange={handleChange} type="text" value={userBounty.lastName} name="lastName" ></input>
                 <select onChange={handleChange} value={userBounty.type} name="type">
                     <option value="sith">sith</option>
