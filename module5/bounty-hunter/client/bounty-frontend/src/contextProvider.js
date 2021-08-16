@@ -29,7 +29,7 @@ function ContextProvider (props) {
         .then(res => {
             setBountiesData(res.data)
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err.res.data.errMsg))
     }
    
     // get one random bonuty
@@ -86,9 +86,18 @@ function ContextProvider (props) {
             .catch(err => console.log(err))
 
     }
+    // filter by type
+    const handleFilter = e => {
+        if(e.target.value === "reset"){
+            getBountyData()
+        }
+        axios.get(`/bounties/search/type?type=${e.target.value}`)
+            .then(res => setBountiesData(res.data))
+            .catch(err => console.log(err))
+    }
 
     return(
-        <Context.Provider value={{setUserBounty, bountiesData, userBounty, handleSubmit, bounty, setBounty, handleChange, handlePost, handleDelete, handleUpdate}}>
+        <Context.Provider value={{setUserBounty, handleFilter, bountiesData, userBounty, handleSubmit, bounty, setBounty, handleChange, handlePost, handleDelete, handleUpdate}}>
             {props.children}
         </Context.Provider>
     )

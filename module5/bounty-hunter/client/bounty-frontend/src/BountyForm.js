@@ -10,6 +10,7 @@ function BountyForm(props){
                 <input onChange={handleChange} type="text" value={userBounty.firstName} name="firstName" placeholder="first name"></input>
                 <input onChange={handleChange} type="text" value={userBounty.lastName} name="lastName" placeholder="last name"></input>
                 <select onChange={handleChange} value={userBounty.type} name="type">
+                    {/* <option>select type</option> */}
                     <option value="sith">sith</option>
                     <option value="jedi">jedi</option>
                 </select>

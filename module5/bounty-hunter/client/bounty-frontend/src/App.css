@@ -47,6 +47,7 @@ html, body {
     display: grid;
     grid-template-columns: repeat(11, 1fr);
     margin-right: 30px;
+    
 }
 
 .bounties{
@@ -72,6 +73,28 @@ html, body {
 .name{
     color:#3d3337;
 }
+
+.filter-form-container{
+    display: grid;
+    grid-template-columns: 13, 1fr;
+    font-family: Helvetica, sans-serif;
+    background-color: #688fb8;
+    padding-bottom: 15px;
+}
+
+.filter-header{
+    grid-column: 2/13;
+    margin-left: 293px;
+    color: #3d3337;
+
+    
+}
+
+.filter-form{
+    grid-column: 2/3;
+    margin-left: 293px;
+}
+
 
 
 

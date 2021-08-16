@@ -8,7 +8,7 @@ import "./App.css"
 
 function App() {
 
-  const {bountiesData, handlePost} = useContext(Context)
+  const {bountiesData, handlePost, handleFilter} = useContext(Context)
   const mappedThroughBounty = bountiesData.map(bounty => <Bounty bounty= {bounty} />)
 
   return (
@@ -19,6 +19,14 @@ function App() {
         </h1>
       </div>
         <BountyForm submit={handlePost}/>
+        <div className="filter-form-container">
+          <h4 className="filter-header">Filter by Type</h4>
+          <select className="filter-form" onChange={handleFilter}>Select Type
+            <option value="reset">all bounties</option>
+            <option value="jedi">jedi</option>
+            <option value="sith">sith</option>
+          </select>
+        </div>
         {/* <Bounty /> */}
         {mappedThroughBounty}
     </div>

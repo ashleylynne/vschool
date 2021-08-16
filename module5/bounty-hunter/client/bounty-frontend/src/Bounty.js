@@ -4,7 +4,7 @@ import BountyForm from "./BountyForm"
 
 function Bounty({bounty}){
     
-    const {handleSubmit, handleDelete, handleUpdate, setBounty, setUserBounty} = useContext(Context)
+    const {handleDelete, handleUpdate, setBounty, setUserBounty} = useContext(Context)
     const [editToggle, setEditToggle] = useState(false)
     console.log(bounty._id)
     return(
@@ -23,7 +23,7 @@ function Bounty({bounty}){
                 <p>{bounty.type}</p>
                 <p>{bounty.bountyAmount} credits</p>
                 
-                <button onClick={handleSubmit}>get bounty</button>
+                {/* <button onClick={handleSubmit}>get bounty</button> */}
                 <button className="buttons" onClick={() => handleDelete(bounty._id)}>delete bounty</button>
                 <button 
                     className="edit-btn" 
