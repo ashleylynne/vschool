@@ -1,0 +1,163 @@
+.france {
+    display: grid;
+    grid-template: repeat(3, 50px) / repeat (3, 50px);
+    grid-template-areas:
+    "a a a"
+    "b c d"
+    "b c d";
+}
+.one {
+    grid-area: a;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: antiquewhite;
+}
+.two {
+    grid-area: b;
+    background-color: #002495;
+}
+.three {
+    grid-area: c;
+    background-color: #FFFFFF;
+}
+.four {
+    grid-area: d;
+    background-color: #ED2938;
+}
+.germany {
+    display: grid;
+    grid-template: repeat(4, 50px) / repeat (5, 50px);
+    grid-template-areas:
+    "e e e e e"
+    "f f f f f"
+    "g g g g g"
+    "h h h h h";
+}
+.five {
+    grid-area: e;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: antiquewhite;
+}
+.six {
+    grid-area: f;
+    background-color: #000000;
+}
+.seven {
+    grid-area: g;
+    background-color: #DE0002;
+}
+.eight {
+    grid-area: h;
+    background-color: #FFCE00;
+}
+.madagascar {
+    display: grid;
+    grid-template: repeat(3, 50px) / repeat(3, 50px);
+    grid-template-areas:
+    "i i i"
+    "j k k"
+    "j l l";
+}
+.nine {
+    grid-area: i;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: antiquewhite;
+}
+.ten {
+    grid-area: j;
+    background-color: #FFFFFF;
+}
+.eleven {
+    grid-area: k;
+    background-color: #FC3E32;
+}
+.twelve {
+    grid-area: l;
+    background-color: #007E39;
+}
+.switzerland {
+    display: grid;
+    grid-template: repeat(6, 50px) / repeat(5, 50px);
+    grid-template-areas:
+    "m m m m m"
+    "n n n n n"
+    "n n o n n"
+    "n o o o n"
+    "n n o n n"
+    "n n n n n";
+}
+.thirteen {
+    grid-area: m;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: antiquewhite;
+}
+.fourteen {
+    grid-area: n;
+    background-color: #FF0002;
+}
+.fifteen {
+    grid-area: o;
+    background-color: #FFFFFF;
+}
+.sweden {
+    display: grid;
+    grid-template: repeat(6, 50px) / repeat(8, 50px);
+    grid-template-areas:
+    "p p p p p p p p"
+    "q q q u r r r r"
+    "q q q u r r r r"
+    "u u u u u u u u"
+    "s s s u t t t t"
+    "s s s u t t t t";
+}
+.sixteen {
+    grid-area: p;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: antiquewhite;
+}
+.seventeen {
+    grid-area: q;
+    background-color: #0269A6;
+}
+.eighteen {
+    grid-area: r;
+    background-color: #0269A6;
+}
+.nineteen {
+    grid-area: s;
+    background-color: #0269A6;
+}
+.twenty {
+    grid-area: t;
+    background-color: #0269A6;
+}
+.twentyone {
+    grid-area: u;
+    background-color: #FECC00;
+}
+/* .gambia {
+    display: grid;
+    grid-template: repeat(4, 50px) / repeat(6, 50px);
+    grid-gap: 3px;
+    grid-template-areas:
+    "v v v v v v"
+    "w w w w w w"
+    "x x x x x x"
+    "y y y y y y";
+} */
+.twentytwo {
+    grid-area: v;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: antiquewhite;
+}
+.twentythree {
+    grid-area: w;
+    background-color: #CE1127;
+}
+.twentyfour {
+    grid-area: x;
+    background-color: #0D1D8B;
+}
+.twentyfive {
+    grid-area: y;
+    background-color: #3B7827;
+}
