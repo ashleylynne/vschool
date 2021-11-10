@@ -4,13 +4,13 @@ require("dotenv").config()
 const morgan = require("morgan")
 const mongoose = require("mongoose")
 const PORT = 9000
-const authRouter = require("../backend/routes/authRouter")
+const authRouter = require("../backend/routes/authRouter.js")
 const expressJwt = require("express-jwt")
 
 app.use(express.json())
 app.use(morgan("dev"))
 
-mongoose.connect("mongodob://localhost:27017/votesdb",
+mongoose.connect("mongodob://localhost:27017/user-authentication",
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,
