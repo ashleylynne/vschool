@@ -5,21 +5,28 @@ Backend
 
 [X] Server
 [X] Route
-[X] Login 
-[] Logout 
+[X] Login  
 [X] Signup
 [X] Encrypt Login
 [X] Encrypt Signup
-[] Comments
+[X] Comments
+[] Issue model
+    - Each item will have a title
+    - Each item will have a description
+    - Each item can be upvoted or downvoted.
+    - User's should only be able to upvote/downvote once per issue.
+    - Items will be ordered by upvotes (the most being at the top).
+    - Each item should show the total number of votes
 
 Client
 
 [X] Create app
-[X] Context
+[X] User Context
 [X] Login
-[] Logout
+[X] Logout
 [X] Signup
 [] Comments
+[] Comments/issues context
 
 Design
 

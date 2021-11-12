@@ -12,7 +12,7 @@ export default function UserProvider(props) {
 
     const [userState, setUserState] = useState(initState)
 
-    
+    // login
     function login(credentials){
         axios.post("/auth/login", credentials)
         .then(res => {
@@ -27,7 +27,7 @@ export default function UserProvider(props) {
         })
         .catch(err => console.log(err.response.data.errMsg))
     }
-
+    // signup
     function signup(credentials){
         axios.post("/auth/signup", credentials)
             .then(res => {
@@ -44,12 +44,25 @@ export default function UserProvider(props) {
             // change the state and save the token
     }
 
+    // logout
+    function logout(){
+        console.log("logout!")
+        localStorage.removeItem("token")
+        localStorage.removeItem("user")
+        setUserState({
+            user: {},
+            token: "",
+            todos: []
+        })
+    }
+
     return(
         <UserContext.Provider
             value={{
                 ...userState,
                 signup,
-                login
+                login,
+                logout
             }}
         >
             {props.children}
