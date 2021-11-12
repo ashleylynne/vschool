@@ -10,7 +10,7 @@ const expressJwt = require("express-jwt")
 app.use(express.json())
 app.use(morgan("dev"))
 
-mongoose.connect("mongodob://localhost:27017/user-authentication",
+mongoose.connect("mongodb://localhost:27017/user-authentication",
 {
     useNewUrlParser: true,
     useUnifiedTopology: true,

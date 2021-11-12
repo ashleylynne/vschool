@@ -3,7 +3,7 @@ const authRouter = express.Router()
 const User = require("../models/User.js")
 const jwt = require("jsonwebtoken")
 
-
+// signup
 authRouter.post("/signup", (req, res, next) => {
     User.findOne({username : req.body.username.toLowerCase() }, (err, user) => {
         if(err){
@@ -20,12 +20,12 @@ authRouter.post("/signup", (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-            const token = jwt.sign(savedUser.toObject(), process.env.SECRET)
-            return res.status(200).send({token, user: savedUser})
+            const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET)
+            return res.status(200).send({token, user: savedUser.withoutPassword()})
         })
     })
 })
-
+// login
 authRouter.post("/login", (req, res, next) => {
     User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
         if(err){
@@ -36,12 +36,19 @@ authRouter.post("/login", (req, res, next) => {
             res.status(403)
             return (new Error("Username or password is incorrect"))
         }
-        if(req.body.password !== user.password){
-            res.status(403)
-            return (new Error("Username or password is incorrect"))
-        }
-        const token = jwt.sign(user.toObject(), process.env.SECRET)
-        return res.status(200).send({user, token})
+
+        user.checkPassword(req.body.password, (err, isMatch) => {
+            if(err){
+                res.status(403)
+                return next(new Error("Username or password is taken"))
+            }
+            if(!isMatch){
+                res.status(403)
+                return next(new Error("Username or password is incorrect"))
+            }
+            const token = jwt.sign(user.withoutPassword(), process.env.SECRET)
+            return res.status(200).send({token, user: user.withoutPassword()})
+        })
     })
 })
 
