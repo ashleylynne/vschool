@@ -6,6 +6,7 @@ const mongoose = require("mongoose")
 const PORT = 9000
 const authRouter = require("../backend/routes/authRouter.js")
 const commentRouter = require("../backend/routes/commentRouter.js")
+const issueRouter = require("../backend/routes/issueRouter.js")
 const expressJwt = require("express-jwt")
 
 app.use(express.json())
@@ -23,7 +24,8 @@ mongoose.connect("mongodb://localhost:27017/user-authentication",
 
 app.use("/auth", authRouter)
 app.use("/api", expressJwt({ secret: process.env.SECRET, algorithms: ['HS256']})) //req.user
-app.use("/api/comments", commentRouter)
+app.use("/api/issues", issueRouter)
+app.use("/api/issues/comments", commentRouter)
 
 app.use((err, req, res, next) => {
     console.log(err)

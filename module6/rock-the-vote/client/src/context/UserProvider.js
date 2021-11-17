@@ -3,6 +3,14 @@ import axios from "axios"
 
 export const UserContext = React.createContext()
 
+const userAxios = axios.create()
+userAxios.interceptors.request.use(config => {
+    // pull token from local storage
+    const token = localStorage.getItem("token")
+    config.headers.Authorization = `Bearer ${token}`
+    return config // <--object
+})
+
 export default function UserProvider(props) {
     const initState = {
         user: JSON.parse(localStorage.getItem("user")) || {},
@@ -46,7 +54,6 @@ export default function UserProvider(props) {
 
     // logout
     function logout(){
-        console.log("logout!")
         localStorage.removeItem("token")
         localStorage.removeItem("user")
         setUserState({
@@ -54,15 +61,24 @@ export default function UserProvider(props) {
             token: "",
             todos: []
         })
+        console.log("logout!")
     }
 
+    function addComment(newComment){
+        userAxios.post("/api/comment", newComment)
+            .then(res => console.log(res))
+            .catch(err => console.log(err.response.data.errMsg))
+
+    }
+    
     return(
         <UserContext.Provider
             value={{
                 ...userState,
                 signup,
                 login,
-                logout
+                logout,
+                addComment
             }}
         >
             {props.children}

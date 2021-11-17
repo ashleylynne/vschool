@@ -3,11 +3,10 @@ const commentRouter = express.Router()
 const Comment = require("../models/Comment.js")
 const jwt = require("jsonwebtoken")
 
-
 // get all comments (not sure if I need this but will build just in case)
-commentRouter.get("/", (req, res, next) => {
+commentRouter.get("/:issueId", (req, res, next) => {
     Comment.find(
-        {user: req.user._id},
+        {_id: req.params.issueId}, //I'm thinking we do comments by each issue bc comments by user doesn't make much sense
         (err, comments) => {
         if(err){
             res.status(500)
@@ -17,23 +16,26 @@ commentRouter.get("/", (req, res, next) => {
     })
 })
 
-// post comment
-commentRouter.post("/", (req, res, next) => {
-    req.body.user = req.user._id
-    const newComment = new Comment(req.body)
-    newComment.save((err, savedComment) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(201).send(savedComment)
+commentRouter.post("/:issueId", (req, res, next) => {
+        req.body.user = req.user._id
+        req.body.issueId = req.params.issueId
+        const newComment = new Comment(req.body)
+        newComment.save((err, savedComment) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(savedComment)
+        })
     })
-})
 
 //  delete comment
-commentRouter.delete("/:commentId", (req, res, next) => {
-    Comment.findOneAndDelete(
-        {_id: req.params.commentId, user: req.user._id},
+commentRouter.delete("/:issueId/:commentId", (req, res, next) => {
+    Comment.findOneAndDelete({
+        _id: req.params.commentId,
+        user: req.user._id,
+        issueId: req.params.issueId
+    },
         (err, deletedComment) => {
             if(err){
                 res.status(500)

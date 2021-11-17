@@ -7,7 +7,7 @@ export default function AuthForm(props){
         handleSubmit,
         inputs: {
             username,
-            password
+            password,
         },
         btnTxt
     } = props
