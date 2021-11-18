@@ -12,12 +12,6 @@ const commentSchema = new Schema({
         default: false
     },
 
-    // username: {
-    //     type: String,
-    //     required: true
-
-    // },
-
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
@@ -31,5 +25,6 @@ const commentSchema = new Schema({
     }
 
 })
+
 
 module.exports = mongoose.model("Comment", commentSchema)

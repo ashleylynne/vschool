@@ -19,8 +19,8 @@ Backend
     - Each item should show the total number of votes
 [X] Issue logic (basic)
 [X] Comment logic (basic)
-[] Connect comments to issues 
-    (everything except get is figured out)
+[/] Connect comments to issues 
+[] issue Likes and dislikes
 
 Client
 [X] Create app
@@ -31,7 +31,6 @@ Client
 [] issues
 [] Comments
 [] Issue/comment context
-
 
 
 

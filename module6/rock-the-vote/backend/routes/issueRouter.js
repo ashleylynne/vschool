@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken")
 
 
 
-// get all issues
+// get all issues by user
 issueRouter.get("/", (req, res, next) => {
     Issue.find(
         {user: req.user._id},
@@ -17,6 +17,18 @@ issueRouter.get("/", (req, res, next) => {
             return res.status(200).send(issues)
         }
     )
+})
+
+// get all issues
+    // this currently returns an empty array. how do i give users access to all issues? how can they comment if they don't have access?
+issueRouter.get("/", (req, res, next) => {
+    Issue.find((err, issues) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send(issues)
+    })
 })
 
 // post issue

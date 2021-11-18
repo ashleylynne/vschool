@@ -3,10 +3,11 @@ const commentRouter = express.Router()
 const Comment = require("../models/Comment.js")
 // const jwt = require("jsonwebtoken")
 
-// get all comments based on issue
+// get all by issue
 commentRouter.get("/:issueId", (req, res, next) => {
-    Comment.find({_id: req.params.issueId}, //I'm thinking we do comments by each issue bc comments by user doesn't make much sense
-        (err, comments) => {
+    req.body.user = req.params._id
+    req.body.issueId = req.params.issueId
+    Comment.find((err, comments) => {
         if(err){
             res.status(500)
             return next(err)
