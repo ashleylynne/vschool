@@ -21,7 +21,7 @@ issueRouter.get("/", (req, res, next) => {
 
 // get all issues
     // this currently returns an empty array. how do i give users access to all issues? how can they comment if they don't have access?
-issueRouter.get("/", (req, res, next) => {
+issueRouter.get("/allissues", (req, res, next) => {
     Issue.find((err, issues) => {
         if(err){
             res.status(500)

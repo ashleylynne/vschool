@@ -19,7 +19,8 @@ Backend
     - Each item should show the total number of votes
 [X] Issue logic (basic)
 [X] Comment logic (basic)
-[/] Connect comments to issues 
+[X] Connect comments to issues
+[X] Be able to GET all issues regardless of user
 [] issue Likes and dislikes
 
 Client
@@ -31,7 +32,6 @@ Client
 [] issues
 [] Comments
 [] Issue/comment context
-
 
 
 Design
