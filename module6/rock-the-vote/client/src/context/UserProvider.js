@@ -3,13 +3,23 @@ import axios from "axios"
 
 export const UserContext = React.createContext()
 
+// const userAxios = axios.create()
+//     userAxios.intercepters.request.use(config => {
+//         // pull token from local storage
+//         const token = localStorage.getItem("token")
+//         config.headers.Authorization = `Bearer ${token}`
+//         return config
+//     })
+
+// create user axios
 const userAxios = axios.create()
-userAxios.interceptors.request.use(config => {
-    // pull token from local storage
-    const token = localStorage.getItem("token")
-    config.headers.Authorization = `Bearer ${token}`
-    return config // <--object
-})
+    // add intercepters to config
+    userAxios.interceptors.request.use(config => {
+        const token = localStorage.getItem("token")
+        // authorize
+        config.headers.Authorization = `Bearer ${token}`
+        return config
+    })
 
 export default function UserProvider(props) {
     const initState = {
@@ -66,14 +76,14 @@ export default function UserProvider(props) {
 
     // add issue
     function addIssue(newIssue){
-        axios.post("/api/issues", newIssue)
+        userAxios.post("/api/issues", newIssue)
             .then(res => console.log(res))
             .catch(err => console.log(err.response.data.errMsg))
     }
 
     // add comment
     function addComment(newComment){
-        userAxios.post("/api/comment", newComment)
+        userAxios.post("/api/issues/comments", newComment)
             .then(res => console.log(res))
             .catch(err => console.log(err.response.data.errMsg))
 
@@ -85,7 +95,8 @@ export default function UserProvider(props) {
                 ...userState,
                 signup,
                 login,
-                logout,
+                logout, 
+                addIssue,
                 addComment
             }}
         >
