@@ -64,6 +64,14 @@ export default function UserProvider(props) {
         console.log("logout!")
     }
 
+    // add issue
+    function addIssue(newIssue){
+        axios.post("/api/issues", newIssue)
+            .then(res => console.log(res))
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    // add comment
     function addComment(newComment){
         userAxios.post("/api/comment", newComment)
             .then(res => console.log(res))
