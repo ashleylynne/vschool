@@ -12,7 +12,7 @@ export default function IssueForm(props){
     const {addIssue} = props
 
 
-    function handleChange(){
+    function handleChange(e){
         const {name, value} = e.target
         setInputs(prevInputs=> ({
             ...prevInputs,
@@ -25,5 +25,29 @@ export default function IssueForm(props){
         addIssue(inputs)
         setInputs(initInputs)
     }
+    const {title, description} = inputs
+    return(
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    placeholder="title" 
+                    value="name"
+                    name={title}
+                    onChange={handleChange}
+                    >
+                </input>
+                <input
+                    type="text"
+                    placeholder="description"
+                    value="name"
+                    name={description}
+                    onChange={handleChange}
+                >
+                </input>
+                <button type="submit">post!</button>
+            </form>
+        </div>
+    )
 }
 

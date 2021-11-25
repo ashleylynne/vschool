@@ -29,9 +29,14 @@ Client
 [X] Login
 [X] Logout
 [X] Signup
-[] issues
+[X] Profile
+[X] issues
+[] App
 [] Comments
 [] Issue/comment context
+[] Likes
+[] dislikes
+[] Watch new switch and route videos and apply to App.js
 
 
 Design

@@ -3,14 +3,6 @@ import axios from "axios"
 
 export const UserContext = React.createContext()
 
-// const userAxios = axios.create()
-//     userAxios.intercepters.request.use(config => {
-//         // pull token from local storage
-//         const token = localStorage.getItem("token")
-//         config.headers.Authorization = `Bearer ${token}`
-//         return config
-//     })
-
 // create user axios
 const userAxios = axios.create()
     // add intercepters to config
@@ -25,7 +17,7 @@ export default function UserProvider(props) {
     const initState = {
         user: JSON.parse(localStorage.getItem("user")) || {},
         token: localStorage.getItem("token") || "",
-        todos: []
+        issues: []
     }
 
     const [userState, setUserState] = useState(initState)
@@ -69,7 +61,7 @@ export default function UserProvider(props) {
         setUserState({
             user: {},
             token: "",
-            todos: []
+            issues: []
         })
         console.log("logout!")
     }
