@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 
 export default function Navbar(props) {
@@ -6,8 +7,8 @@ export default function Navbar(props) {
 
     return(
         <div className="navbar">
-            {/* Profile link here */}
-            {/* Public link here */}
+            <Link to="/profile">Profile</Link>
+            <Link to="public">Public</Link>
             <button onClick={logout}>logout</button>
         </div>
     )

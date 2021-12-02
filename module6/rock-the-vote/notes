@@ -27,16 +27,18 @@ Client
 [X] Create app
 [X] User Context
 [X] Login
-[X] Logout
+[] Logout
 [X] Signup
 [X] Profile
-[X] issues
+[X] post issues
+[] delete issues
+[] Public
 [] App
 [] Comments
 [] Issue/comment context
 [] Likes
 [] dislikes
-[] Watch new switch and route videos and apply to App.js
+[X] switch and route
 
 
 Design

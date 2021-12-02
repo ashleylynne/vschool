@@ -9,7 +9,7 @@ const initInputs = {
 
 export default function IssueForm(props){
     const [inputs, setInputs] = useState(initInputs)
-    const {addIssue} = props
+    const { addIssue } = props
 
 
     function handleChange(e){
@@ -24,6 +24,7 @@ export default function IssueForm(props){
         e.preventDefault()
         addIssue(inputs)
         setInputs(initInputs)
+        return inputs
     }
     const {title, description} = inputs
     return(
@@ -32,16 +33,16 @@ export default function IssueForm(props){
                 <input 
                     type="text" 
                     placeholder="title" 
-                    value="name"
-                    name={title}
+                    value={title}
+                    name="title"
                     onChange={handleChange}
                     >
                 </input>
                 <input
                     type="text"
                     placeholder="description"
-                    value="name"
-                    name={description}
+                    value={description}
+                    name="description"
                     onChange={handleChange}
                 >
                 </input>

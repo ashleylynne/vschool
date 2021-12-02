@@ -17,10 +17,18 @@ const issueSchema = new Schema({
         required: true
     },
 
-    comments: {
-        
+    comment: {
+        // type: Schema.Types.ObjectId,
+        // ref: "comment"
+    },
+    likes: {
+        type: Number,
+        default: 0
+    },
+    dislikes: {
+        type: Number,
+        default: 0
     }
-
 })
 
 
