@@ -1,40 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<form id="travelForm">
-
-    <input type="text" name="firstName">First Name
-    <input type="text" name="lastName">Last Name
-    <input type="number" name="age">Age
-    Gender:
-    <input type="radio" name="gender" value="female">Female 
-    <input type="radio" name="gender" value="male">Male <br>
-    Dietary Restrictions: <br>(Select all that apply) 
-    <input type="checkbox" name="diet" value="vegan">Vegan 
-    <input type="checkbox" name="diet" value="vegetarian">Vegetarian 
-    <br>
-    Pick a Travel Location:
-    <select name="location" id="location">
-        <option value="paris">Paris</option>
-        <option value="lisbon">Lisbon</option>
-        <option value="amsterdam">Amsterdam</option>
-    </select> <br>
-    <button>Submit</button>
-    
-
-
-
-</form>
-
-
-    <script src="app.js"></script>
-</body>
+<html>
+    <head>
+        <title>Travel Form</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        
+        <form name='travel-form'>
+            <input type='text' placeholder="First Name" name='fName' />
+            <input type='text' placeholder="Last Name" name='lName' />
+            <input type='text' placeholder="Age" name='age' />
+            <label>Male</label>
+            <input type='radio' placeholder="Gender" name='gender' value='Male' />
+            <label>Female</label>
+            <input type='radio' placeholder="Gender" name='gender' value='Female' />
+            <select name='location'>
+                <option value='Austria' >Austria</option>
+                <option value='Thailand' >Thailand</option>
+                <option value='England' >England</option>
+            </select>
+            <label>Vegan</label>
+            <input type='checkbox' name='diet' value='Vegan' />
+            <label>Keto</label>
+            <input type='checkbox' name='diet' value='Keto' />
+            <label>Kosher</label>
+            <input type='checkbox' name='diet' value='Kosher' />
+            <button name='submit'>Submit</button>
+        </form>
+        
+        <script src="app.js"></script>
+    </body>
 </html>
+
+
+
 
 <!-- // First name (text input)
 // Last name (text input)

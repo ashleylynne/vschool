@@ -1,14 +1,33 @@
-const form = document.getElementById("travelForm")
+const travelForm = document['travel-form']
 
+let button = travelForm.submit
 
-
-form.addEventListener("submit", function(event) {
+button.addEventListener('click', function (event){
     event.preventDefault()
-    const formData = form.firstName.value + form.lastName.value + form.gender.value + form.diet.value + form.location.value
-    alert(formData)
+    let fName = travelForm.fName.value
+    let lName = travelForm.lName.value
+    let age = travelForm.age.value
+    let gender = travelForm.gender.value
+    let location = travelForm.location.value
+    let diet = travelForm.diet
+    let dietArr = []
+    for(let i = 0; i < diet.length;i++){
+        if(diet[i].checked){
+            dietArr.push(diet[i].value)
+        }
+    }
+    
+    window.alert(`
+           first Name: ${fName},
+           last Name: ${lName},
+           age: ${age},
+           gender: ${gender},
+           location: ${location},
+           diet: ${dietArr}`)
+    
 })
 
-// Got everything but the alert button to work
+
 
 
 // First name (text input)
