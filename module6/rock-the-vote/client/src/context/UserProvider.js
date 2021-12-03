@@ -78,6 +78,18 @@ export default function UserProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+    // delete user issue
+    function deleteIssue(id){
+        userAxios.delete(`/api/issues/${id}`)
+            console.log("delete!", id)
+            .then(res => {
+                setUserState((prevUserState) => (
+                    prevUserState.filter((issue) => issue._id !== id)
+                ))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+
     // add comment
     function addComment(newComment){
         userAxios.post("/api/issues/comments", newComment)
@@ -94,7 +106,8 @@ export default function UserProvider(props) {
                 login,
                 logout, 
                 addIssue,
-                addComment
+                addComment,
+                deleteIssue
             }}
         >
             {props.children}

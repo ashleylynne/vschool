@@ -22,6 +22,7 @@ Backend
 [X] Connect comments to issues
 [X] Be able to GET all issues regardless of user
 [] issue Likes and dislikes
+    issue with likes is im only able to like what the user has posted themselves
 
 Client
 [X] Create app
@@ -34,8 +35,7 @@ Client
 [] delete issues
 [] Public
 [] App
-[] Comments
-[] Issue/comment context
+[] comments
 [] Likes
 [] dislikes
 [X] switch and route
