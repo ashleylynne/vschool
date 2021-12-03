@@ -81,13 +81,12 @@ export default function UserProvider(props) {
     // delete user issue
     function deleteIssue(id){
         userAxios.delete(`/api/issues/${id}`)
-            console.log("delete!", id)
             .then(res => {
-                setUserState((prevUserState) => (
-                    prevUserState.filter((issue) => issue._id !== id)
-                ))
+                setUserState((prevUserState) => ({
+                    ...prevUserState,
+                    issues: [prevUserState.issues.filter((issue) => issue._id !== id)]
+                }))
             })
-            .catch(err => console.log(err.response.data.errMsg))
     }
 
     // add comment
