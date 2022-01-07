@@ -1,6 +1,6 @@
 const express = require("express")
 const bountyRouter = express.Router()
-const Bounty = require('../bounty-hunter-server/models/bounty.js')
+const Bounty = require('./models/bounty.js')
 // const uuid = require("uuid").v4
 
 

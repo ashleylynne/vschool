@@ -22,12 +22,16 @@ function Bounty({bounty}){
                 </h3>
                 <p>{bounty.type}</p>
                 <p>{bounty.bountyAmount} credits</p>
+                <p>Alive: {bounty.isAlive.toString()}</p>
+                {/* trying to get it to actually display the words "dead" or "alive" */}
+                {/* <p>Alive: {() => {bounty.isAlive = true ? "Alive" : "Dead"}}</p> */}
                 
                 {/* <button onClick={handleSubmit}>get bounty</button> */}
                 <button className="buttons" onClick={() => handleDelete(bounty._id)}>delete bounty</button>
                 <button 
                     className="edit-btn" 
                     onClick={(e) => {
+                        e.preventDefault()
                         const children = e.target.parentElement.children
                         setUserBounty({
                             firstName: children[0].children[0].innerText,
@@ -35,6 +39,7 @@ function Bounty({bounty}){
                             type: children[1].innerText,
                             amount: children[2].innerText,
                             id: bounty._id
+
                         })
                         setEditToggle(prevToggle => !prevToggle)
                         }}>

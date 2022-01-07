@@ -2,9 +2,12 @@
 
 const express = require("express")
 const bountyRouter = require("./bountyRouter")
+const authRouter = require("../bounty-hunter-server/routes/authRouter")
 const app = express()
 const morgan = require("morgan")
 const mongoose = require("mongoose")
+const PORT = 9000
+require("dotenv").config()
 
 // middleware
 app.use(express.json())
@@ -22,7 +25,8 @@ mongoose.connect("mongodb://localhost:27017/bountiesdb",
 () => console.log("Connected to the database!")
 )
 
-// route
+// routes
+app.use("/auth", authRouter)
 app.use("/bounties", bountyRouter)
 
 // error handler
@@ -32,6 +36,6 @@ app.use((err, req, res, next) => {
 
 })
 
-app.listen(9000, () => {
-    console.log("hey im running on 9000!")
+app.listen(PORT, () => {
+    console.log(`running on port ${PORT}!`)
 })

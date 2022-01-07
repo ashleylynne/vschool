@@ -1,0 +1,18 @@
+Project: build use athentication!
+
+Backend:
+
+[] User model
+[] Signup
+[] Login
+[] Encrypt password
+
+
+Frontend:
+
+[] Login form
+[] User context
+[] Signup request
+[] Login request
+[] Logout
+[] Hash passwords

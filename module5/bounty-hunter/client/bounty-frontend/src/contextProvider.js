@@ -59,6 +59,7 @@ function ContextProvider (props) {
                 getBountyData()
             })
             console.log(userBounty)
+            // handleReset()
     }
     // delete one bounty
     const handleDelete = id => {
@@ -84,6 +85,7 @@ function ContextProvider (props) {
             getBountyData()
         })
             .catch(err => console.log(err))
+        // handleReset()
 
     }
     // filter by type
@@ -96,8 +98,16 @@ function ContextProvider (props) {
             .catch(err => console.log(err))
     }
 
+    // reset form values
+    const handleReset = () => {
+        setBountiesData((prevBountiesData) => ({
+            ...prevBountiesData,
+            bountiesData: ""
+        }))
+    }
+
     return(
-        <Context.Provider value={{setUserBounty, handleFilter, bountiesData, userBounty, handleSubmit, bounty, setBounty, handleChange, handlePost, handleDelete, handleUpdate}}>
+        <Context.Provider value={{handleReset, setUserBounty, handleFilter, bountiesData, userBounty, handleSubmit, bounty, setBounty, handleChange, handlePost, handleDelete, handleUpdate}}>
             {props.children}
         </Context.Provider>
     )
